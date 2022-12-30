@@ -203,8 +203,8 @@ class Pull(Command):
                     message = email.message_from_bytes(message)
                     for plugin in self.plugins:
                         message = plugin(message=message)
-                        #if message is None:
-                        #    break
+                        if message is None:
+                            break
                     if message is not None:
                         mbox.add(message)
                     last = no
